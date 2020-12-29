@@ -20,16 +20,14 @@ router.get("/", async (req, res) => {
 
 // Sauvegarde d'un formulaire
 router.post("/save", async (req, res) => {
-  let title = "moi";
-  let questions = "toi";
+  let data = req.fields;
   try {
     // const { title, questions } = req.fields;
     const newform = new Calendrier({
-      title,
-      questions,
+      dateGlobal: "253",
     });
-    await newform.save();
-    res.status(200).json(newform);
+    // await newform.save();
+    res.status(200).json(data);
   } catch (error) {
     res.status(400).json(error.message);
   }
