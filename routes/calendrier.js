@@ -7,15 +7,13 @@ const Calendrier = require("../models/Calendrier");
 
 // Recuperation de tous les formulaires
 router.get("/", async (req, res) => {
-  res.status(200).json({ janvier: "2020" });
-  // console.log("tentative");
-  // try {
-  //   const allcalendar = await Calendrier.find();
+  try {
+    const allcalendar = await Calendrier.find();
 
-  //   res.status(200).json({ janvier: "2020" });
-  // } catch (error) {
-  //   res.status(400).json(error.message);
-  // }
+    res.status(200).json(allcalendar);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 });
 
 // Sauvegarde d'un formulaire
