@@ -21,6 +21,7 @@ router.post("/save", async (req, res) => {
   let { choice } = req.fields;
   try {
     // const { title, questions } = req.fields;
+    await Calendrier.deleteMany();
     const newDate = await new Calendrier({
       dateGlobal: choice,
     });
